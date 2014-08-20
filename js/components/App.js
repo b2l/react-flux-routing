@@ -2,12 +2,13 @@
 var React = require('react');
 var NavigationStore = require('../stores/NavigationStore');
 var transitionTo = require('../actions/navActionCreator').transitionTo;
+var Link = require('./Link');
 var Route1 = require('./Route1');
 var Route2 = require('./Route2');
 var Route3 = require('./Route3');
 
 var App = React.createClass({
-  
+
   getInitialState: function() {
     return {
       component: <div>Nothing here</div>
@@ -30,10 +31,10 @@ var App = React.createClass({
       return (
         <div className="main-app">
           <nav>
-            <li><a onClick={this.dispatch} href="#/route1">Route 1</a></li>
-            <li><a onClick={this.dispatch} href="#/route2">Route 2</a></li>
-            <li><a onClick={this.dispatch} href="#/route1/route3">Route 3</a></li>
-            <li><a onClick={this.dispatch} href="#/route2/subroute">Sub Route 4</a></li>
+            <li><Link href="#/route1">Route 1</Link></li>
+            <li><Link href="#/route2">Route 2</Link></li>
+            <li><Link href="#/route1/route3">Route 3</Link></li>
+            <li><Link href="#/route2/subroute">Sub Route 4</Link></li>
           </nav>
 
           {this.state.component}

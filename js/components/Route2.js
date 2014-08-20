@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react');
 var NavigationStore = require('../stores/NavigationStore');
-var transitionTo = require('../actions/navActionCreator').transitionTo;
 var SubPane = require('./SubPane');
 
 var Route2 = React.createClass({
@@ -41,7 +40,7 @@ var Route2 = React.createClass({
         </div>
       );
     }
-  
+
     return (
       <div>
         <h1>This is route 2</h1>

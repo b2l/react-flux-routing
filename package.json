@@ -3,7 +3,7 @@
   "description": "A Flux compliant Router for react",
   "version": "0.0.1",
   "keywords": [
-    'react','router','flux'
+    "react","router","flux"
   ],
   "author": "Nicolas MEDDA <b2l.powa@gmail.com>",
   "licenses": [
