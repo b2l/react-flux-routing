@@ -1,30 +1,24 @@
 /** @jsx React.DOM */
 var React = require('react');
 var NavigationStore = require('../stores/NavigationStore');
+var navigableMixin = require('../mixins/navigableMixin');
 var SubPane = require('./SubPane');
+var Link = require('./Link');
 
 var Route2 = React.createClass({
+  mixins: [navigableMixin],
 
-  getInitialState: function() {
-    return {
-      subpane: null
-    };
-  },
-
-  componentDidMount: function() {
-    NavigationStore.onNavigate('#/route2/subroute', this.displaySubPane);
-  },
-
-  componentWillUnmout: function() {
-    NavigationStore.removeNavigateListener('#/route2/subroute', this.displaySubPane);
+  routes: {
+    '#/route2/subroute': <SubPane />
   },
 
   render: function() {
-    var compose = this.state.subpane !== null;
+    var compose = this.state.partial !== null;
 
     var pane = (
       <div className="one-pane">
         <h1>This is pane 1</h1>
+        <Link href="#/route2/subroute">Create a new pane</Link>
       </div>
     );
 
@@ -35,7 +29,7 @@ var Route2 = React.createClass({
             <h1>This is pane 1, not dynamic</h1>
           </div>
           <div className="pane-two">
-            {this.state.subpane}
+            {this.state.partial}
           </div>
         </div>
       );
@@ -47,12 +41,6 @@ var Route2 = React.createClass({
         {pane}
       </div>
     );
-  },
-
-  displaySubPane: function() {
-    this.setState({
-      subpane: <SubPane />
-    });
   }
 
 });

@@ -31,6 +31,10 @@ var NavigationStore = merge(EventEmitter.prototype, {
     this.removeListener(NAV_EVENT+'__'+url, callback);
   },
 
+  getCurrent: function() {
+    return _current;
+  },
+
   isActive: function(url) {
     return url === _current;
   }
