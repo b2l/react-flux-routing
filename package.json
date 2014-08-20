@@ -1,0 +1,26 @@
+{
+  "name": "react-flux-routing",
+  "description": "A Flux compliant Router for react",
+  "version": "0.0.1",
+  "keywords": [
+    'react','router','flux'
+  ],
+  "author": "Nicolas MEDDA <b2l.powa@gmail.com>",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "dependencies": {
+    "react": "^0.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b2l/react-flux-routing"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "main": "index.js"
+}
