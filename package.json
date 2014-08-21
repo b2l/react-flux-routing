@@ -3,7 +3,9 @@
   "description": "A Flux compliant Router for react",
   "version": "0.0.1",
   "keywords": [
-    "react","router","flux"
+    "react",
+    "router",
+    "flux"
   ],
   "author": "Nicolas MEDDA <b2l.powa@gmail.com>",
   "licenses": [
@@ -22,5 +24,11 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "main": "index.js"
+  "main": "index.js",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^2.1.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-react": "^0.9.0"
+  }
 }
