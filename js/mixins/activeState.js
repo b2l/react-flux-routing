@@ -1,4 +1,4 @@
-var NavigationStore = require('../stores/NavigationStore');
+var NavigationStore = require('../stores/NavigationStore').Store;
 
 module.exports = {
   getDefaultProps: function() {

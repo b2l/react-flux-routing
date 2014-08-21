@@ -1,5 +1,4 @@
-var React = require('react');
-var NavigationStore = require('../stores/NavigationStore');
+var NavigationStore = require('../stores/NavigationStore').Store;
 
 var navigableMixin = {
 

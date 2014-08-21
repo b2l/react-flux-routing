@@ -2,7 +2,8 @@
 var React = require('react');
 
 var App = require('./components/App');
-var NavAction = require('./actions/navActionCreator');
+var Router = require('./router');
+var NavAction = Router.Action;
 
 // Mount the App component
 React.renderComponent(

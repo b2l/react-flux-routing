@@ -40,7 +40,8 @@ var NavigationStore = merge(EventEmitter.prototype, {
   }
 });
 
-NavigationStore.dispatchToken = Dispatcher.register(function(payload) {
+module.exports.Store = NavigationStore;
+module.exports.register = function(payload) {
   var action = payload.action;
 
   if (action.type === 'NAVIGATE') {
@@ -51,6 +52,4 @@ NavigationStore.dispatchToken = Dispatcher.register(function(payload) {
     _current = url;
     NavigationStore.emitNav(url, params);
   }
-});
-
-module.exports = NavigationStore;
+}

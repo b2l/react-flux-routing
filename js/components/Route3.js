@@ -1,10 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
-var NavigationStore = require('../stores/NavigationStore');
-var Dispatcher = require('../dispatchers/AppDispatcher');
 
 var Route3 = React.createClass({
-
   render: function() {
     return (
       <div>
@@ -12,7 +9,6 @@ var Route3 = React.createClass({
       </div>
     );
   }
-
 });
 
 module.exports = Route3;

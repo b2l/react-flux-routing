@@ -1,8 +1,9 @@
 /** @jsx React.DOM */
 var React = require('react');
-var navigableMixin = require('../mixins/navigableMixin');
+var Routing = require('../router');
+var navigableMixin = Routing.mixins.navigableMixin;
 var SubPane = require('./SubPane');
-var Link = require('./Link');
+var Link = Routing.components.Link;
 
 var Route2 = React.createClass({
   mixins: [navigableMixin],
