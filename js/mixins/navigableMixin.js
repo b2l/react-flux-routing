@@ -4,8 +4,15 @@ var NavigationStore = require('../stores/NavigationStore');
 var navigableMixin = {
 
   getInitialState: function() {
+    var current = NavigationStore.getCurrent();
+    var index = Object.keys(this.routes).indexOf(current);
+    var partial = this.defaultPartial || null;
+    if (index >= 0) {
+      partial = this.routes[current];
+    }
+
     return {
-      partial: this.defaultPartial || null
+      partial: partial
     };
   },
 

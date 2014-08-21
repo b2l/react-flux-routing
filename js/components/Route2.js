@@ -1,6 +1,5 @@
 /** @jsx React.DOM */
 var React = require('react');
-var NavigationStore = require('../stores/NavigationStore');
 var navigableMixin = require('../mixins/navigableMixin');
 var SubPane = require('./SubPane');
 var Link = require('./Link');
@@ -9,7 +8,8 @@ var Route2 = React.createClass({
   mixins: [navigableMixin],
 
   routes: {
-    '#/route2/subroute': <SubPane />
+    '#/route2/subroute': <SubPane />,
+    '#/route2/subroute/test': <SubPane />
   },
 
   render: function() {
