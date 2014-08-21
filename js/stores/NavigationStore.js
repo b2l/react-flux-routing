@@ -11,7 +11,6 @@ var _current = '/';
 
 var NavigationStore = merge(EventEmitter.prototype, {
   emitNav: function(url, params) {
-    this.emit(NAV_EVENT+'__'+url, params);
     this.emit(ROUTE_CHANGED);
   },
 
@@ -23,23 +22,23 @@ var NavigationStore = merge(EventEmitter.prototype, {
     this.removeListener(ROUTE_CHANGED, cb);
   },
 
-  onNavigate: function(url, callback) {
-    this.on(NAV_EVENT+'__'+url, callback);
-  },
-
-  removeNavigateListener: function(url, callback) {
-    this.removeListener(NAV_EVENT+'__'+url, callback);
-  },
-
   getCurrent: function() {
     return _current;
+  },
+
+  getMatch: function(urls) {
+    var matches = urls.filter(function(url) {
+      url = "#" + url;
+      var compiledUrl  = url.replace('*', '.*') + "$";
+      return url === _current || new RegExp(compiledUrl).test(_current);
+    });
+    return matches.length > 0 ? matches[0] : null;
   },
 
   isActive: function(url) {
     return url === _current;
   }
 });
-
 
 NavigationStore.dispatchToken = Dispatcher.register(function(payload) {
   var action = payload.action;

@@ -4,40 +4,26 @@ var NavigationStore = require('../stores/NavigationStore');
 var navigableMixin = {
 
   getInitialState: function() {
-    var current = NavigationStore.getCurrent();
-    var index = Object.keys(this.routes).indexOf(current);
-    var partial = this.defaultPartial || null;
-    if (index >= 0) {
-      partial = this.routes[current];
-    }
-
     return {
-      partial: partial
+      partial: null
     };
   },
 
+  updateState: function() {
+    var match = NavigationStore.getMatch(Object.keys(this.routes));
+    var partial = match? this.routes[match] : null;
+    this.setState({
+      partial: partial
+    });
+  },
+
   componentDidMount: function() {
-    if (this.routes) {
-      for (var route in this.routes) {
-        NavigationStore.onNavigate(route, this.setPartial);
-      }
-    }
+    this.updateState();
+    NavigationStore.addChangeListener(this.updateState);
   },
 
   componentWillUnmount: function() {
-    if (this.routes) {
-      for (var route in this.routes) {
-        NavigationStore.removeNavigateListener(route, this.setPartial);
-      }
-    }
-  },
-
-  setPartial: function() {
-    if (!this.isMounted) return;
-
-    this.setState({
-      partial: this.routes[NavigationStore.getCurrent()]
-    });
+    NavigationStore.removeChangeListener(this.updateState);
   }
 }
 

@@ -14,6 +14,7 @@ var Link = React.createClass({
 
   render: function() {
     var linkClass = this.state.active ? this.props.activeClassName : '';
+    this.props.href = "#" + this.props.href;
     return (
       <a onClick={this.handleClick} href={this.props.href} className={linkClass}>{this.props.children}</a>
     );

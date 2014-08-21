@@ -7,7 +7,7 @@ var SubPane = React.createClass({
   mixins: [navigableMixin],
 
   routes: {
-    '#/route2/subroute/test': <Pane />
+    '/route2/subroute/test': <Pane />
   },
 
   render: function() {
