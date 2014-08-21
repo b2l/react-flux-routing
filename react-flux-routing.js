@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var React = require('react');
 var navStore = require('./js/stores/NavigationStore');
 var NavigationStore = navStore.Store;
@@ -42,7 +41,7 @@ module.exports = function(Dispatcher) {
       var linkClass = this.state.active ? this.props.activeClassName : '';
       this.props.href = "#" + this.props.href;
       return (
-        <a onClick={this.handleClick} href={this.props.href} className={linkClass}>{this.props.children}</a>
+        React.DOM.a({onClick:this.handleClick, href:this.props.href, className:linkClass}, this.props.children)
       );
     }
   });
@@ -60,7 +59,7 @@ module.exports = function(Dispatcher) {
       NavigationStore: NavigationStore
     },
     components: {
-      Link: require('./js/components/Link')
+      Link: Link
     }
   };
 };
