@@ -39,7 +39,7 @@ module.exports = function(Dispatcher) {
 
     render: function() {
       var linkClass = this.props.className + ' ';
-      linkClass += this.state.active ? this.props.activeClassName : ';
+      linkClass += this.state.active ? this.props.activeClassName : '';
       this.props.href = "#" + this.props.href;
       return (
         React.DOM.a({onClick:this.handleClick, href:this.props.href, className:linkClass}, this.props.children)
