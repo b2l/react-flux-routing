@@ -1,7 +1,7 @@
 {
   "name": "react-flux-routing",
   "description": "A Flux compliant Router for react",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "keywords": [
     "react",
     "router",
