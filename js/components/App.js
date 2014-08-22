@@ -14,7 +14,7 @@ var App = React.createClass({
   routes: {
     '/route1': <Route1 />,
     '/route1/route3': <Route3 />,
-    '/route2*': <Route2 />
+    '/route2(.*)': <Route2 />
   },
 
   render: function() {

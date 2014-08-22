@@ -9,7 +9,7 @@ var Route2 = React.createClass({
   mixins: [navigableMixin],
 
   routes: {
-    '/route2/subroute*': <SubPane />,
+    '/route2/:routeName(.*)': <SubPane />,
   },
 
   render: function() {
@@ -18,7 +18,9 @@ var Route2 = React.createClass({
     var pane = (
       <div className="one-pane">
         <h1>This is pane 1</h1>
-        <Link href="/route2/subroute">Create a new pane</Link>
+        <Link href="/route2/subroute">Create pane with param "subroute"</Link>
+        <br />
+        <Link href="/route2/another-one">Create pane with param "another-one"</Link>
       </div>
     );
 
