@@ -13,9 +13,9 @@ npm install react-flux-routing
 ## Setup
 
 React Flux Routing is just a set of tools, to use it, you have to create a wrapper.
-Create a file named Routing.js
+Create a file named Router.js
 
-Ex: Routing.js
+Ex: Router.js
 
 ```
 var Dispatcher = require('your-dispatcher');
@@ -29,7 +29,7 @@ React Flux Routing expect your dispatcher to have a method ```register``` to reg
 
 ## Routing
 
-Now do you have configured React Flux Routing, you can navigate with it.
+Now you have configured React Flux Routing, you can navigate with it.
 
 React Flux Routing provide a mixin to handle routes in View-Controller :
 
@@ -39,7 +39,7 @@ var View1 = require('./view1');
 var View2 = require('./view2');
 
 var App = React.createClass({
-  mixins: [routing.navigableMixin],
+  mixins: [routing.mixins.navigableMixin],
 
   routes: {
     '/path/1': <View1 />,
